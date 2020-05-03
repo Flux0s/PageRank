@@ -4,11 +4,12 @@ use IO;
 
 // Initialization of program parameters
 config var input_file: string = "link.txt";
-config var generate_link_matrix: bool = true;
+config var generate_links: bool = true;
 config var n: int = 15;
 config var p: int = -1;
 config var max_iterations: int = 10000;
 config var debug: bool = false;
+config var sort_pages = false;
 // A good value for damping factor is 0.810
 config var damping_factor: real = 0.810;
 
@@ -21,7 +22,7 @@ var t1: Timer;
 
 
 // Create sample data and populate matrix and link counts
-if (generate_link_matrix) { 
+if (generate_links && input_file == "link.txt") { 
     fillRandom(link_matrix);
     if (debug) {
         writeln(link_matrix);
@@ -80,7 +81,9 @@ for iteration in 0..max_iterations-1 {
     forall process_num in 0..p-1 {
         for r in process_num*p_size..p_size+(process_num*p_size)-1 {
             // writeln(process_num*p_size, " -> ", p_size+(process_num*p_size)-1);
-            // writeln(r);
+            if (debug) {
+                writeln(r);
+            }
             // writeln(process_num);
             for c in 0..n-1 {
                 if (r != c && link_matrix[r, c]) {
@@ -94,7 +97,21 @@ for iteration in 0..max_iterations-1 {
     page_ranks = next_page_ranks;
 }
 t1.stop();
-
+    
+if (sort_pages) {
+    for i in 0..n-1 {
+        for j in i+1..n-1 {
+            if page_ranks[i] > page_ranks[j] {
+                var tempRank: real = page_ranks[j];
+                var tempString: string = page_urls[j];
+                page_ranks[j] = page_ranks[i];
+                page_ranks[i] = tempRank;
+                page_urls[j] = page_urls[i];
+                page_urls[i] = tempString;
+            }
+        }
+    }
+}
 writeln("Page Ranks:");
 for page in 0..n-1 {
     writeln(page_urls[page], ": ", page_ranks[page]);
