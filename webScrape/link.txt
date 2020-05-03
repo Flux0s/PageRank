@@ -1,0 +1,22 @@
+umbc.edu facebook.com messenger.com nytimes.com qualtrics.com nytco.com nytmediakit.com nytconferences.com timestalks.com instagram.com twitter.com twimg.com t.co youtube.com google.com tbrandcustomevents.com getwiththetimes.com surveymonkey.com tbrandstudio.com vimeo.com 
+false true false true false false false false false false false false false false false false false false false false 
+false true false true false false false false false false false false false false false false false false false false 
+false false false false false false false false false false false false false false false false false false false false 
+false false false true false false false false false false false false false false false false false false false false 
+false false false false false false true false false false false false false false false false false false false false 
+false false false false false false true false false false false false false false false false false false false false 
+false false false false false false true false false false false false false false false false false false false false 
+false false false false false false false true false false false false false false false false false false true false 
+false false false false false false false false true false false false false false false false true false false false 
+false false false false false false false false false false true false false false false false false false false false 
+false false false false false false false false false false true false false false false false false false false false 
+false false false false false false false false false false false false true false false false false false false false 
+false false false false false false false false false false false false true false false false false false false false 
+false false false false false false false false false false false false false true false false false false false false 
+false false false false false false false false false false false false false false false false false false false false 
+false false false false false false false false false false false false false false false false false false false false 
+false false false false false false false false false false false false false false false false true false false false 
+false false false false false false false false false false false false false false false false false false false false 
+false false false false false false false false false false false false false false false false false false true false 
+false false false false false false false false false false false false false false false false false false false false 
+
