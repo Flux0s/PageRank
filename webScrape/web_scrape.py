@@ -17,7 +17,6 @@ import re
 import httplib2
 import tldextract
 
-
 MAX_DOMAINS = 20
 w, h = MAX_DOMAINS, MAX_DOMAINS
 #initializing n x n matrix with False's
