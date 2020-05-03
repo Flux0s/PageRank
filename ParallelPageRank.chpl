@@ -63,11 +63,14 @@ if (debug) {
 }
 
 t1.start();
+var p_size: int = n/p;
 for iteration in 0..max_iterations-1 {
     var next_page_ranks: [0..n-1] real;
-    forall r0 in 0..p-1 {
-        for r in r0*n/p..n/p+(r0*n/p)-1 {
-            // writeln(r0*n/p, " -> ", n/p+(r0*n/p)-1);
+    forall process_num in 0..p-1 {
+        for r in process_num*p_size..p_size+(process_num*p_size)-1 {
+            // writeln(process_num*p_size, " -> ", p_size+(process_num*p_size)-1);
+            writeln(r);
+            // writeln(process_num);
             for c in 0..n-1 {
                 if (r != c && link_matrix[r, c]) {
                     next_page_ranks[r] += page_ranks[c] / out_link_counts[c];
@@ -85,4 +88,5 @@ writeln("Page Ranks:");
 for page in 0..n-1 {
     writeln(page_urls[page], ": ", page_ranks[page]);
 }
+writeln();
 writeln(p, " ", t1.elapsed());
