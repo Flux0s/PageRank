@@ -9,7 +9,8 @@ config var n: int = 15;
 config var p: int = -1;
 config var max_iterations: int = 10000;
 config var debug: bool = false;
-config var sort_pages = false;
+config var sort_pages: bool = false;
+config var display_ranks: bool = true;
 // A good value for damping factor is 0.810
 config var damping_factor: real = 0.810;
 
@@ -94,7 +95,7 @@ for iteration in 0..max_iterations-1 {
             next_page_ranks[r] += 1 - damping_factor;
         }
     }
-    page_ranks = next_page_ranks;
+        page_ranks = next_page_ranks;
 }
 t1.stop();
     
@@ -112,9 +113,12 @@ if (sort_pages) {
         }
     }
 }
-writeln("Page Ranks:");
-for page in 0..n-1 {
-    writeln(page_urls[page], ": ", page_ranks[page]);
+
+if (display_ranks) {
+    writeln("Page Ranks:");
+    for page in 0..n-1 {
+        writeln(page_urls[page], ": ", page_ranks[page]);
+    }
+    writeln();
 }
-writeln();
 writeln(p, " ", t1.elapsed());
